@@ -1,11 +1,11 @@
 ---
 layout: cv
 permalink: /cv/
-title: cv
+title: Tom's CV
 nav: true
 nav_order: 5
-cv_pdf: example_pdf.pdf
-description: This is a description of the page. You can modify it in '_pages/cv.md'. You can also change or remove the top pdf download button.
+cv_pdf: Curriculum_Vitae_924_24_RoboPercep.pdf
+description: This is a my CV, the last updated date is 9/24/2024. CV contains additional informations such as awards I've received and related courseworks.
 toc:
-  sidebar: left
+  sidebar: right
 ---
