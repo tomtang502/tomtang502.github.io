@@ -2,7 +2,7 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: tomtang'website # the website title (if blank, full name will be used instead)
+title: "Tom Tang's Website" # the website title (if blank, full name will be used instead)
 first_name: Haozhan (Tom)
 middle_name:
 last_name: Tang
