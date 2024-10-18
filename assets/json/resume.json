@@ -1,15 +1,25 @@
 {
   "basics": {
     "name": "Haozhan (Tom) Tang",
-    "I am a": "3rd Year Undegrad Double Majoring in CS and Robotics at CMU",
+    "I am a": "3rd year undergrad double majoring in CS and Robotics at CMU",
     "image": "",
     "email": "haozhant@andrew.cmu.edu",
     "phone": "",
-    "url": "http://localhost:8080haha",
+    "url": "tomtango.net",
     "interests": "Robotic Perception, Distributed Systems and Computing, Networks and the Internet"
   },
   "work": [],
   "volunteer": [
+    {
+      "organization": "Carnegie Science Center SciYinz Squad Competition",
+      "location": "Pittsburgh, PA, U.S.",
+      "position": "Judge",
+      "url": "https://carnegiesciencecenter.org/groups-and-schools/sciyinz-squad-competitions/",
+      "startDate": "2023-1-27",
+      "endDate": "2023-1-29",
+      "summary": "Judge at the hackathon.",
+      "highlights": []
+    },
     {
       "organization": "Art for Everyone(AFE) Masked Lisa Children Aesthetic Education Group",
       "location": "Beijing, China",
