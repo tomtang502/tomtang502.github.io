@@ -6,4 +6,4 @@ description: Some of my favorite video games and my proud achievements in them.
 nav: false
 ---
 
-hmmmm I probably should hidden this page from my lab mentor..
+I will fill this when I get time..
