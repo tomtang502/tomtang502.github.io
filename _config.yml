@@ -10,7 +10,7 @@ email: haozhant@andrew.cmu.edu
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
 footer_text: >
-  Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
+  Hosted by <a href="https://aws.amazon.com/" target="_blank">Amazon AWS</a>.
 keywords: Robotics Perception, Distributed System, Networks and the Internet # add your own keywords or leave empty
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: icon.png # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
