@@ -2,7 +2,7 @@
 layout: about
 title: About
 permalink: /
-subtitle: Pittsburgh, Virginia Beach, Beijing, Wuhan
+subtitle: Pittsburgh, Beijing, Virginia Beach, Wuhan
 
 profile:
   align: top

@@ -67,7 +67,7 @@ nav_order: 1
       <span>Jan 2024 - Present</span>
       <span style="border-left: 1px solid #ccc; margin: 0 10px; padding-left: 10px;">Pittsburgh, PA</span><br>
       <ul>
-      <li><strong>15210 Parallel and Sequential Data Structures and Algorithms</strong> (<a href="https://www.cs.cmu.edu/~15210/">Fall 24</a> & <a href="#">Spring 24</a>)</li>
+      <li><strong>15210 Parallel and Sequential Data Structures and Algorithms</strong> (<a href="https://www.cs.cmu.edu/~15210/">Fall 24</a> & Spring 24)</li>
       <li><strong>15122 Principles of Imperative Computation</strong> (<a href="http://www.cs.cmu.edu/~15122-archive/n23/">Summer 23</a>)</li>
       <li><strong>15112 Fundamentals of Programming and Computer Science</strong> (<a href="https://www.cs.cmu.edu/~112-s23/">Spring 23</a>)</li>
       </ul>
