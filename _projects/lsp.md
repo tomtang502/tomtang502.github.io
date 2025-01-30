@@ -43,3 +43,5 @@ The resulting LSP has the following features in addition to TCP/UDP:
   <li>Message integrity is ensured: a message sent over the network will be rejected if modified in transit.</li>
   <li>The server and clients monitor the status of their connections and detect when the other side has become disconnected.</li>
 </ul>
+
+This project is done as part of the course project at CMU 15440.

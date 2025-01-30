@@ -56,3 +56,4 @@ Mixnet packets contain a standardized header and payload, with various packet ty
 
 Overall, the Mixnet project demonstrates a simplified yet foundational approach to creating anonymous communication networks. It provides hands-on experience with privacy-enhancing routing techniques and network protocol design while emphasizing the importance of evaluating system performance in practical, real-world scenarios.
            
+This project is done as part of the course project at CMU 15441.
