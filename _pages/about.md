@@ -24,5 +24,3 @@ I like to work with robotics, and I've already worked with robotic arm, quadrape
 I used to be a big fan of subatomic particles and quantum physics, and I've both won awards in Physics Olympiad and done researches in physics before I started my undergraduate life (Checkout the bottom in [Publications](/publications/)).
 
 > Advanced perception make better and easier control in robots.
-
-This site is still under construction so please don't refer to it right away!
