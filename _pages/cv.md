@@ -1,7 +1,7 @@
 ---
 layout: cv
 permalink: /cv/
-title: Tom's CV
+title: CV
 nav: true
 nav_order: 5
 cv_pdf: Curriculum_Vitae_924_24_RoboPercep.pdf
