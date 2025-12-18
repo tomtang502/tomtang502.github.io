@@ -8,6 +8,6 @@ children:
   - title: soccer
     permalink: /soccer/
   - title: divider
-  - title: video games
-    permalink: /video_games/
+  - title: /competitive programming/
+    permalink: /cpnewbie/
 ---
