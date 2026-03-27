@@ -28,6 +28,7 @@
   --global-back-to-top-text-color: #{$white-color};
   --global-newsletter-bg-color: #{$white-color};
   --global-newsletter-text-color: #{$black-color};
+  --global-bg-overlay-color: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85));
 
   --global-tip-block: #42b983;
   --global-tip-block-bg: #e2f5ec;
@@ -97,6 +98,7 @@ html[data-theme="dark"] {
   --global-back-to-top-text-color: #{$black-color};
   --global-newsletter-bg-color: #{$grey-color-light};
   --global-newsletter-text-color: #{$grey-color-dark};
+  --global-bg-overlay-color: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85));
 
   --global-tip-block: #42b983;
   --global-tip-block-bg: #e2f5ec;

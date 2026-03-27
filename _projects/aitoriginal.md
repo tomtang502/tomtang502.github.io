@@ -5,6 +5,7 @@ description: A comprehensive AI toolbox that enables users without math and code
 img: assets/img/projects/ait/aitoverview.png
 importance: 1
 category: AI & DL
+year: 2022
 related_publications: false
 ---
 A quick <a href="https://www.youtube.com/watch?v=Sf7zYb4NZZ8">demo video</a> on youtube (I played the background music with oboe).

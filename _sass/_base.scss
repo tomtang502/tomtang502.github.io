@@ -832,6 +832,70 @@ footer.sticky-bottom {
   }
 }
 
+// Publications & Projects combined page
+.publications-projects {
+  // Hide year sections that have no publications and no projects
+  .year-section:not(:has(ol.bibliography li)):not(:has(.row)) {
+    display: none;
+  }
+
+  // Hide publications wrapper when bibliography is empty
+  .pub-wrapper:not(:has(ol.bibliography li)) {
+    display: none;
+  }
+
+  .year-section {
+    margin-bottom: 2rem;
+
+    > h2.bibliography {
+      color: var(--global-theme-color);
+      border-bottom: 2px solid var(--global-divider-color);
+      padding-bottom: 0.3rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  .pub-proj-col-header {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--global-text-color-light);
+    margin-bottom: 0.75rem;
+  }
+
+  // Project cards within the combined view
+  .col-md-6 .col {
+    padding-bottom: 1rem;
+
+    .card {
+      img {
+        width: 100%;
+      }
+    }
+
+    a {
+      text-decoration: none;
+
+      &:hover .card-title {
+        color: var(--global-theme-color);
+      }
+    }
+  }
+
+  // Horizontal project cards: full width
+  > .year-section > .row > .col {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  > .year-section > .row > .col .card {
+    background-color: rgba(128, 128, 128, 0.1);
+  }
+
+  .card-body .card-title {
+    font-size: 0.95rem;
+  }
+}
+
 // Rouge Color Customization
 figure.highlight {
   margin: 0 0 1rem;

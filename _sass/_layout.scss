@@ -5,7 +5,9 @@
 body {
   padding-bottom: 70px;
   color: var(--global-text-color);
-  background-color: var(--global-bg-color);
+  background: var(--global-bg-overlay-color), url("/assets/img/bg/background.png") no-repeat center center fixed;
+  background-size: cover, cover;
+  image-rendering: pixelated;
 
   h1,
   h2,
