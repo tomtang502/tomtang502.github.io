@@ -41,6 +41,14 @@ bundle exec jekyll serve --port 11868
 
 Then open [http://localhost:11868](http://localhost:11868).
 
+## Formatting
+
+Run prettier before pushing to pass CI checks:
+
+```bash
+./format.sh
+```
+
 ## Project Structure
 
 ```

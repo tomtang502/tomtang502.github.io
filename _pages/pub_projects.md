@@ -15,31 +15,31 @@ display_categories: [Computer Systems and Networks, AI & DL]
 {% comment %} Generate a broad year range to cover publications {% endcomment %}
 {% assign all_years = "" | split: "" %}
 {% for i in (0..15) %}
-  {% assign y = 2030 | minus: i %}
-  {% assign all_years = all_years | push: y %}
+{% assign y = 2030 | minus: i %}
+{% assign all_years = all_years | push: y %}
 {% endfor %}
 
 {% comment %} Merge project years into the range and deduplicate {% endcomment %}
 {% for y in proj_years %}
-  {% unless all_years contains y %}
-    {% assign all_years = all_years | push: y %}
-  {% endunless %}
+{% unless all_years contains y %}
+{% assign all_years = all_years | push: y %}
+{% endunless %}
 {% endfor %}
 {% assign all_years = all_years | sort | reverse %}
 
 {% for y in all_years %}
-  {% assign year_projects = site.projects | where_exp: "item", "item.year == y" %}
-  {% assign filtered_projects = "" | split: "" %}
-  {% for project in year_projects %}
-    {% if page.display_categories contains project.category %}
-      {% assign filtered_projects = filtered_projects | push: project %}
-    {% endif %}
-  {% endfor %}
+{% assign year_projects = site.projects | where_exp: "item", "item.year == y" %}
+{% assign filtered_projects = "" | split: "" %}
+{% for project in year_projects %}
+{% if page.display_categories contains project.category %}
+{% assign filtered_projects = filtered_projects | push: project %}
+{% endif %}
+{% endfor %}
 
-  {% assign has_projects = false %}
-  {% if filtered_projects.size > 0 %}
-    {% assign has_projects = true %}
-  {% endif %}
+{% assign has_projects = false %}
+{% if filtered_projects.size > 0 %}
+{% assign has_projects = true %}
+{% endif %}
 
   <div class="year-section">
     <h2 class="bibliography" id="y{{ y }}">{{ y }}</h2>
@@ -59,6 +59,7 @@ display_categories: [Computer Systems and Networks, AI & DL]
         {% endfor %}
       </div>
     {% endif %}
+
   </div>
 {% endfor %}
 </div>

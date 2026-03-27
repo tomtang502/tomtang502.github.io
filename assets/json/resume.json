@@ -28,7 +28,9 @@
       "startDate": "2020-12-01",
       "endDate": "2021-May-20",
       "summary": "Delivered lectures and created official social media account(Bilibili, Instagram, Kuaishou) to post aesthetic education videos to illustrate the positive impacts of arts on the characters of students ; conducted questionnaires to study the factors affecting parents' decisions making through statistical analysis and posted results online.",
-      "highlights": ["Superior Award (top 5%) for the project: Chinese Children's Aesthetic Education: Way to Explore the Creativity of Children's in the 2020-2021 Youth Impact Competition (YIC 2020-2021)"]
+      "highlights": [
+        "Superior Award (top 5%) for the project: Chinese Children's Aesthetic Education: Way to Explore the Creativity of Children's in the 2020-2021 Youth Impact Competition (YIC 2020-2021)"
+      ]
     },
     {
       "organization": "Temple of Thanksgiving in Tiantai Mountain",
@@ -63,7 +65,7 @@
   ],
   "education": [],
   "awards": [],
-  "certificates": [], 
+  "certificates": [],
   "publications": [],
   "patents": [],
   "skills": [],
@@ -81,20 +83,12 @@
     {
       "name": "Computer System",
       "icon": "fa-solid fa-server",
-      "keywords": [
-        "Distributed Systems",
-        "Distributed Computing",
-        "Parallel Computing and Algorithms",
-        "Networks and the Internet"
-      ]
+      "keywords": ["Distributed Systems", "Distributed Computing", "Parallel Computing and Algorithms", "Networks and the Internet"]
     },
     {
       "name": "Physics",
       "icon": "fa-solid fa-atom",
-      "keywords": [
-        "Quantum Computing",
-        "Quantum Information"
-      ]
+      "keywords": ["Quantum Computing", "Quantum Information"]
     }
   ],
   "languages": [

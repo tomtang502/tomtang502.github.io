@@ -13,6 +13,7 @@ year: 2024
 Reimplementing the distributed log consensus protocol - Raft.
 
 `Raft Routine`<br>
+
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/projects/440_441/raft/raft.png" title="raft_routine" class="img-fluid rounded z-depth-1" %}
@@ -65,6 +66,7 @@ stems from its ability to give applications a simple abstraction with strong gua
 network only provides best-effort delivery.
 
 This project includes the following components of TCP:
+
 <ul>
     <li>
         <strong>Start and Teardown:</strong> TCP three-way handshake and connection teardown via FIN
@@ -84,6 +86,7 @@ This project includes the following components of TCP:
 </ul>
 
 `TCP Routine`<br>
+
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/projects/440_441/tcp/tcp_routine.png" title="tcp_routine" class="img-fluid rounded z-depth-1" %}
@@ -94,6 +97,7 @@ This project includes the following components of TCP:
 </div>
 
 `TCP Reno`<br>
+
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/projects/440_441/tcp/tcp_reno.png" title="tcp_reno" class="img-fluid rounded z-depth-1" %}
@@ -110,6 +114,7 @@ This project includes the following components of TCP:
 A Liso web server supporting HTTP 1.1 at the application layer, and a smart client able to parallelly process and request files based on a lineage graph.
 
 `Liso HTTP 1.1 Server Implementation`
+
 <ul>
   <li>A web server capable of handling HTTP requests (GET, HEAD, etc.) from multiple clients concurrently.</li>
   <li>Implements robust error handling (e.g., HTTP 404, HTTP 503, HTTP 400) and overload protection.</li>
@@ -117,6 +122,7 @@ A Liso web server supporting HTTP 1.1 at the application layer, and a smart clie
 </ul>
 
 `Smart Client Implementation`
+
 <ul>
   <li>A custom client replacing standard web browsers to interact with the server.</li>
   <li>Implements HTTP/1.1 optimizations such as pipelining (concurrent inflight requests) and parallel connections.</li>
@@ -131,6 +137,7 @@ A distributed network layer algorithm to establish reliable, efficient, and secu
 The Mix Network (Mixnet) project aims to create a privacy-preserving network overlay that enables anonymous communication by obscuring both the message content and the identities of communicating parties.
 
 `Key Features`
+
 <ul>
     <li><strong>Encryption:</strong> Ensures that any intercepted messages are unintelligible without proper decryption, keeping message contents secure.</li>
     <li><strong>Redirection:</strong> Messages are relayed through intermediate nodes to hide the source and destination, making it difficult for observers to link senders and recipients.</li>
@@ -138,6 +145,7 @@ The Mix Network (Mixnet) project aims to create a privacy-preserving network ove
 </ul>
 
 `Network Architecture`
+
 <ul>
     <li>Composed of interconnected nodes that operate as both sources and forwarders, Mixnet forms an undirected graph where nodes are linked to each other.</li>
     <li>Each node uses a combination of shortest-path and random routing strategies to relay messages, balancing efficiency and privacy.</li>
@@ -146,6 +154,7 @@ The Mix Network (Mixnet) project aims to create a privacy-preserving network ove
 
 `Packet Structure`<br>
 Mixnet packets contain a standardized header and payload, with various packet types (STP, FLOOD, LSA, DATA, PING) supporting routing, control, and communication functions.
+
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/projects/440_441/mixnet/overview.png" title="algorithm flow" class="img-fluid rounded z-depth-1" %}
