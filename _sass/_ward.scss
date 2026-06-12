@@ -1,0 +1,771 @@
+/*******************************************************************************
+ * Chang'an Ward Grid — style-guide-03 (cyber-zen-matrix)
+ * The page is a walled map: every region is a ward, every border is shown on
+ * purpose. Values are exact per the guide; do not "approximately" them.
+ ******************************************************************************/
+
+:root {
+  /* core — Cyber-Zen Matrix spec */
+  --ink: #0b0c10; /* Deep Ink — page & cell background */
+  --green: #10b981; /* Bamboo Terminal — primary accent */
+  --seal: #e11d48; /* Imperial Seal — identity red, rationed */
+  --stone: #1f2937; /* Stone Wall — reference surface */
+  --paper: #e2e8f0; /* Rice Paper — primary text */
+
+  /* derived neutrals */
+  --raise: #11151d; /* ward hover surface */
+  --line: #27313f; /* hairline borders (outside the map) */
+  --line2: #2b3648; /* THE GUTTER COLOR — the ward walls */
+  --dim: #94a3b8; /* secondary text */
+  --mute: #64748b; /* metadata — supplementary only */
+  --faint: #475569; /* ward labels at rest (decorative) */
+  --sky: #c2ddfa; /* owner accent — research-area chips, status chip, places */
+  --stamp: #34318e; /* owner accent — the T logo stamp */
+  --on-stamp: #e3e4ff;
+  --on-green: #04150e;
+  --on-seal: #ffe4e6;
+
+  /* type */
+  --font-display: "Noto Serif SC", Georgia, serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+
+  /* the map */
+  --gutter: 1px; /* ward wall thickness */
+  --r-btn: 6px;
+  --r-pill: 999px;
+  --maxw: 1180px; /* content max width; side padding 28px */
+}
+
+/*******************************************************************************
+ * Global typography
+ ******************************************************************************/
+
+body {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  color: var(--paper);
+}
+
+.post article p,
+.ward p {
+  color: var(--dim);
+}
+
+strong,
+b {
+  color: var(--paper);
+  font-weight: 600;
+}
+
+// Pixel art only is pixelated (body texture, .ward.world).
+// Photos, previews, and logos render normally.
+img {
+  image-rendering: auto;
+}
+
+code {
+  font-family: var(--font-mono);
+}
+
+::selection {
+  background: var(--seal);
+  color: var(--on-seal);
+}
+
+/*******************************************************************************
+ * The ward map (signature layout)
+ ******************************************************************************/
+
+.map-wrap {
+  width: min(var(--maxw), calc(100% - 56px)); /* side padding 28px */
+  margin: 28px auto 48px;
+}
+
+// The container's background shows through the gap — that is the 1px wall.
+// Cells must be opaque --ink (Law 2: never hide the walls).
+.ward-map {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--gutter);
+  background: var(--line2);
+  border: var(--gutter) solid var(--line2); /* the outer city wall */
+}
+
+.ward {
+  background: var(--ink);
+  position: relative;
+  padding: 22px 20px 18px;
+  min-height: 60px;
+  transition: background 0.2s;
+}
+
+.ward:hover {
+  background: var(--raise);
+}
+
+// Identity red on ward-label hover (owner preference: seal red, not green).
+.ward:hover .fang {
+  color: var(--seal);
+}
+
+// Gate label is a terminal-style processing spinner (owner preference).
+// Browsers without discrete content animation show the first frame.
+.fang-proc::before {
+  content: "⠋ processing";
+  animation: processing 1s infinite;
+}
+
+@keyframes processing {
+  0% {
+    content: "⠋ processing";
+  }
+  10% {
+    content: "⠙ processing";
+  }
+  20% {
+    content: "⠹ processing";
+  }
+  30% {
+    content: "⠸ processing";
+  }
+  40% {
+    content: "⠼ processing";
+  }
+  50% {
+    content: "⠴ processing";
+  }
+  60% {
+    content: "⠦ processing";
+  }
+  70% {
+    content: "⠧ processing";
+  }
+  80% {
+    content: "⠇ processing";
+  }
+  90% {
+    content: "⠏ processing";
+  }
+}
+
+// Ward labels — 9.5px mono wayfinding, always visible at rest.
+// (Label text drops the guide's fang: prefix by owner preference.)
+.fang {
+  position: absolute;
+  top: 8px;
+  left: 11px;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--faint);
+  transition: color 0.2s;
+}
+
+/* span utilities */
+.s1 {
+  grid-column: span 1;
+}
+.s2 {
+  grid-column: span 2;
+}
+.s3 {
+  grid-column: span 3;
+}
+.s4 {
+  grid-column: span 4;
+}
+.s6 {
+  grid-column: span 6;
+}
+
+/* row variants */
+.ward.nav-cell {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+}
+
+// Law 4: the 3px inset on the gate (title) ward is the only vertical accent.
+.ward.gate {
+  box-shadow: inset 3px 0 0 var(--green);
+  padding: 30px 26px 26px;
+}
+
+.ward.foot {
+  padding: 12px 20px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--faint);
+  letter-spacing: 0.06em;
+  min-height: 0;
+}
+
+/*******************************************************************************
+ * Nav wards
+ ******************************************************************************/
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 16.5px;
+  color: var(--paper);
+
+  &:hover {
+    color: var(--paper);
+    text-decoration: none;
+  }
+}
+
+// Logo stamp — indigo by owner preference (seal red stays for the other accents).
+.seal {
+  width: 21px;
+  height: 21px;
+  border-radius: 4px;
+  background: var(--stamp);
+  color: var(--on-stamp);
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 12.5px;
+  flex: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 15px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--dim);
+
+  a {
+    color: var(--dim);
+    text-transform: lowercase;
+
+    &::before {
+      content: "[";
+    }
+
+    &::after {
+      content: "]";
+    }
+
+    &:hover {
+      color: var(--green);
+      text-decoration: none;
+    }
+  }
+
+  .on {
+    color: var(--green);
+  }
+}
+
+// [about me] rides in the logo ward — subordinate to the name:
+// smaller and dimmer, by owner preference.
+.logo-links {
+  margin-left: 14px;
+
+  a {
+    font-size: 11px;
+    color: var(--mute);
+  }
+}
+
+.status-chip {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--sky);
+  margin: 0 auto;
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  padding: 5px 11px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  white-space: nowrap;
+
+  i {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 7px rgba(16, 185, 129, 0.8);
+  }
+}
+
+/*******************************************************************************
+ * Gate ward (title)
+ ******************************************************************************/
+
+.display-name {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(28px, 3.1vw, 38px);
+  line-height: 1.1;
+  color: var(--paper);
+  margin: 8px 0 0;
+}
+
+.subtitle {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--green);
+  margin-top: 12px;
+}
+
+.cursor {
+  display: inline-block;
+  width: 8px;
+  height: 15px;
+  background: var(--green);
+  vertical-align: -2px;
+  margin-left: 3px;
+  animation: blink 1.15s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+// The gate's single line: research areas as the terminal prompt, with cursor.
+// NOTE: if buttons return, never use Bootstrap's .btn-primary class —
+// MDB's CDN stylesheet hijacks it with `background-color: #4285f4 !important`.
+.gate-line {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+.gate-loc {
+  margin-top: 16px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--sky);
+}
+
+/*******************************************************************************
+ * World ward (the image band) — one ward among wards, never a hero
+ ******************************************************************************/
+
+.ward.world {
+  padding: 0;
+  // Full-width art (owner preference): the band's aspect ratio is set so the
+  // image always spans the ward's width while the band shows 45% of the art's
+  // height — the max that fits the ~300px band at desktop — windowed from
+  // 10% to 55% of the art. 441/111.15 = art width / (45% of art height).
+  height: auto;
+  aspect-ratio: 441 / 111.15;
+  background-image: url("/assets/img/bg/background_p2.png");
+  background-size: 100% auto;
+  // 18.18% = 10% / (1 − 0.45): pins the window's top at 10% of the art.
+  background-position: center 18.18%;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+}
+
+.ward.world .fang {
+  background: rgba(11, 12, 16, 0.65);
+  padding: 3px 7px;
+  border-radius: 3px;
+  color: #a7b6c8;
+}
+
+/*******************************************************************************
+ * Card-in-ward: the ward is the surface; nested borders are banned
+ ******************************************************************************/
+
+.pub-proj-col-header {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--green);
+}
+
+/*******************************************************************************
+ * Content wards (markdown sections, page bodies)
+ ******************************************************************************/
+
+.ward.content-ward {
+  padding: 34px 26px 26px;
+}
+
+.ward.content-ward > h2,
+.ward.content-ward .clearfix > h2 {
+  font-size: clamp(22px, 2.6vw, 30px);
+  margin-top: 40px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+// Seal-red ward marker before section headings — square, like the wards.
+.ward.content-ward > h2::before,
+.ward.content-ward .clearfix > h2::before {
+  content: "";
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  background: var(--seal);
+  margin-right: 12px;
+  vertical-align: 2px;
+}
+
+.post .post-header .post-title {
+  font-size: clamp(28px, 3.1vw, 38px);
+  line-height: 1.1;
+}
+
+.post .post-header .desc,
+.post .post-header .post-description {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--green);
+  margin-top: 12px;
+
+  &::before {
+    content: "> ";
+  }
+}
+
+// Body font for quotes: Noto Serif SC's CJK-width apostrophes misrender
+// Latin text ("isn’ t"), so quotes use Inter italic.
+blockquote {
+  border-left: 1px solid var(--seal) !important;
+  font-family: var(--font-body);
+  font-style: italic;
+  color: var(--dim) !important;
+}
+
+/*******************************************************************************
+ * Profile
+ ******************************************************************************/
+
+// Photo is a fifth of the ward's width (owner preference); roomier on phones.
+.ward .profile.float-right,
+.ward .profile.float-left {
+  width: 20%;
+}
+
+@media (max-width: 760px) {
+  .ward .profile.float-right,
+  .ward .profile.float-left {
+    width: 40%;
+  }
+}
+
+.profile {
+  img {
+    border: none;
+    border-radius: 0; /* wards are square — imagery inside the map follows */
+  }
+
+  // Research areas under the photo — one per row, sky blue, larger type.
+  .more-info {
+    font-family: var(--font-mono);
+    font-size: 13.5px;
+    color: var(--dim);
+
+    // base sets inline-block; force one research area per row
+    p {
+      display: block;
+      margin: 0 0 7px;
+    }
+
+    code {
+      display: inline-block;
+      color: var(--sky);
+      background: var(--raise);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 3px 8px;
+    }
+  }
+}
+
+/*******************************************************************************
+ * Publications — stripped entries (the ward is the surface)
+ ******************************************************************************/
+
+.publications {
+  ol.bibliography {
+    list-style: none;
+    padding: 0;
+
+    > li {
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      padding: 4px 0;
+      margin-bottom: 30px;
+    }
+  }
+
+  .title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 16.5px;
+    line-height: 1.42;
+    color: var(--paper);
+  }
+
+  .author {
+    color: var(--dim);
+    font-size: 13.5px;
+
+    // Self-author mark: identity red — the seal under your own name.
+    em {
+      color: var(--paper);
+      font-style: normal;
+      border-bottom: 1px solid var(--seal);
+    }
+  }
+
+  .periodical {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--mute);
+
+    em {
+      font-style: normal;
+    }
+  }
+
+  .links a.btn {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--dim);
+    background: transparent;
+    border: 1px solid var(--line2);
+    border-radius: var(--r-btn);
+    padding: 4px 10px;
+
+    &:hover {
+      color: var(--green);
+      border-color: var(--green);
+      text-decoration: none;
+    }
+  }
+
+  .preview img,
+  .preview picture img {
+    border: none;
+    border-radius: 0;
+  }
+}
+
+/*******************************************************************************
+ * Year wards (publications & projects page)
+ ******************************************************************************/
+
+// Hide year wards that have no publications and no projects
+.ward.year-ward:not(:has(ol.bibliography li)):not(:has(.row)) {
+  display: none;
+}
+
+.ward.year-ward .pub-wrapper:not(:has(ol.bibliography li)) {
+  display: none;
+}
+
+.ward.year-ward {
+  padding: 34px 26px 22px;
+}
+
+// Project cards inside wards: stripped — no double walls
+.ward.year-ward .card,
+.ward .card {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+
+  .card-img {
+    border-radius: 0;
+  }
+
+  .card-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 16.5px;
+    line-height: 1.42;
+    color: var(--paper);
+  }
+
+  .card-text {
+    color: var(--dim);
+    font-size: 14px;
+  }
+}
+
+.ward.year-ward > .row > .col {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+/*******************************************************************************
+ * News & contact wards
+ ******************************************************************************/
+
+.news {
+  .table td {
+    color: var(--dim);
+    font-size: 14px;
+  }
+
+  // Dates live in <th scope="row">; --dim because dates are essential (§9).
+  .table th {
+    font-family: var(--font-mono);
+    font-weight: 400;
+    font-size: 11px;
+    color: var(--dim);
+  }
+}
+
+.social {
+  .contact-icons {
+    font-size: 2.2rem;
+  }
+
+  .contact-icons a {
+    color: var(--dim);
+
+    i::before {
+      color: var(--dim);
+    }
+
+    &:hover,
+    &:hover i::before {
+      color: var(--green);
+    }
+  }
+
+  .contact-note {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--mute);
+  }
+}
+
+/*******************************************************************************
+ * Blog header (header-bar lives inside its ward)
+ ******************************************************************************/
+
+.header-bar {
+  border-bottom: none;
+
+  h1 {
+    color: var(--paper);
+    font-size: clamp(28px, 3.1vw, 38px);
+  }
+
+  h2 {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--green);
+  }
+}
+
+.tag-category-list a {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+}
+
+/*******************************************************************************
+ * Accessibility & motion
+ ******************************************************************************/
+
+:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/*******************************************************************************
+ * Bamboo-node scrollbar (shared flourish, §12)
+ ******************************************************************************/
+
+body::-webkit-scrollbar {
+  width: 11px;
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--ink);
+}
+
+body::-webkit-scrollbar-thumb {
+  background: repeating-linear-gradient(180deg, var(--green) 0 26px, #0a7c55 26px 30px);
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+}
+
+/*******************************************************************************
+ * Responsive collapse (required)
+ ******************************************************************************/
+
+@media (max-width: 760px) {
+  .ward-map {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* wards stack full-width; walls remain */
+  .s1,
+  .s2,
+  .s3,
+  .s4,
+  .s6 {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .status-chip {
+    display: none;
+  }
+
+  // Hiding the chip would leave an unlabeled empty cell — hide its ward too.
+  .ward.chip-cell {
+    display: none;
+  }
+
+  // §4 "truncate nav to two links": this site has exactly two nav links.
+  .nav-links a:nth-child(n + 3) {
+    display: none;
+  }
+}

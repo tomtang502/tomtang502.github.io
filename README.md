@@ -53,7 +53,6 @@ Run prettier before pushing to pass CI checks:
 
 ```
 _bibliography/   # BibTeX files (papers.bib)
-_data/           # YAML data (co-authors, repositories, venues)
 _includes/       # Liquid template partials
 _layouts/        # Page layout templates
 _news/           # News/announcement items

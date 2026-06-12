@@ -22,7 +22,5 @@ AI Toolbox is a GUI of foundamental modern machine learning algorithms that enab
 
 It's written in python with numpy, matplotlib, and <a href="https://pypi.org/project/cmu-graphics/">CMU Graphics Library</a>.
 
----
-
 > "It's important to realize that AI's going to be used in your job, not necessarily replace your job, so it's going to be important for people to understand AI, not be afraid of it."
 > —Nur Naqvi

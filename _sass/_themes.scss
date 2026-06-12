@@ -4,31 +4,28 @@
 
 @use "sass:color";
 
+/* Chang'an Ward Grid: single fixed palette.
+   The al-folio --global-* vars are mapped onto the tokens defined in _ward.scss. */
 :root {
-  --global-bg-color: #{$white-color};
-  --global-code-bg-color: #{$code-bg-color-light};
-  --global-text-color: #{$black-color};
-  --global-text-color-light: #{$grey-color};
-  --global-theme-color: #{$purple-color};
-  --global-hover-color: #{$purple-color};
-  --global-hover-text-color: #{$white-color};
-  --global-footer-bg-color: #{$grey-color-dark};
-  --global-footer-text-color: #{$grey-color-light};
-  --global-footer-link-color: #{$white-color};
-  --global-distill-app-color: #{$grey-color};
-  --global-divider-color: rgba(0, 0, 0, 0.1);
-  --global-card-bg-color: #{$white-color};
-  --global-highlight-color: #{$red-color-dark};
-  --global-back-to-top-bg-color: rgba(
-    #{color.channel($black-color, "red", $space: rgb)},
-    #{color.channel($black-color, "green", $space: rgb)},
-    #{color.channel($black-color, "blue", $space: rgb)},
-    0.4
-  );
-  --global-back-to-top-text-color: #{$white-color};
-  --global-newsletter-bg-color: #{$white-color};
-  --global-newsletter-text-color: #{$black-color};
-  --global-bg-overlay-color: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85));
+  --global-bg-color: var(--ink);
+  --global-code-bg-color: var(--raise);
+  --global-text-color: var(--paper);
+  --global-text-color-light: var(--dim);
+  --global-theme-color: var(--green);
+  --global-hover-color: var(--green);
+  --global-hover-text-color: var(--on-green);
+  --global-footer-bg-color: var(--ink);
+  --global-footer-text-color: var(--dim);
+  --global-footer-link-color: var(--paper);
+  --global-distill-app-color: var(--dim);
+  --global-divider-color: var(--line);
+  --global-card-bg-color: var(--stone);
+  --global-highlight-color: var(--seal);
+  --global-back-to-top-bg-color: rgba(14, 17, 23, 0.85);
+  --global-back-to-top-text-color: var(--green);
+  --global-newsletter-bg-color: var(--stone);
+  --global-newsletter-text-color: var(--paper);
+  --global-bg-overlay-color: linear-gradient(rgba(11, 12, 16, 0.95), rgba(11, 12, 16, 0.95));
 
   --global-tip-block: #42b983;
   --global-tip-block-bg: #e2f5ec;
@@ -75,30 +72,26 @@
   }
 }
 
+/* Kept for safety (toggle is disabled): dark mode is identical to the base palette. */
 html[data-theme="dark"] {
-  --global-bg-color: #{$grey-color-dark};
-  --global-code-bg-color: #{$code-bg-color-dark};
-  --global-text-color: #{$grey-color-light};
-  --global-text-color-light: #{$grey-color};
-  --global-theme-color: #{$cyan-color};
-  --global-hover-color: #{$cyan-color};
-  --global-hover-text-color: #{$white-color};
-  --global-footer-bg-color: #{$grey-color-light};
-  --global-footer-text-color: #{$grey-color-dark};
-  --global-footer-link-color: #{$black-color};
-  --global-distill-app-color: #{$grey-color-light};
-  --global-divider-color: #424246;
-  --global-card-bg-color: #{$grey-900};
-  --global-back-to-top-bg-color: rgba(
-    #{color.channel($white-color, "red", $space: rgb)},
-    #{color.channel($white-color, "green", $space: rgb)},
-    #{color.channel($white-color, "blue", $space: rgb)},
-    0.5
-  );
-  --global-back-to-top-text-color: #{$black-color};
-  --global-newsletter-bg-color: #{$grey-color-light};
-  --global-newsletter-text-color: #{$grey-color-dark};
-  --global-bg-overlay-color: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85));
+  --global-bg-color: var(--ink);
+  --global-code-bg-color: var(--raise);
+  --global-text-color: var(--paper);
+  --global-text-color-light: var(--dim);
+  --global-theme-color: var(--green);
+  --global-hover-color: var(--green);
+  --global-hover-text-color: var(--on-green);
+  --global-footer-bg-color: var(--ink);
+  --global-footer-text-color: var(--dim);
+  --global-footer-link-color: var(--paper);
+  --global-distill-app-color: var(--dim);
+  --global-divider-color: var(--line);
+  --global-card-bg-color: var(--stone);
+  --global-back-to-top-bg-color: rgba(14, 17, 23, 0.85);
+  --global-back-to-top-text-color: var(--green);
+  --global-newsletter-bg-color: var(--stone);
+  --global-newsletter-text-color: var(--paper);
+  --global-bg-overlay-color: linear-gradient(rgba(11, 12, 16, 0.95), rgba(11, 12, 16, 0.95));
 
   --global-tip-block: #42b983;
   --global-tip-block-bg: #e2f5ec;

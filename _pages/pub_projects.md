@@ -5,10 +5,10 @@ title: Publications & Projects
 description: Publications and projects sorted by year.
 nav: true
 nav_order: 2
+ward_self: true # this page emits its own year wards (style-guide-03)
 display_categories: [Computer Systems and Networks, AI & DL]
 ---
 
-<div class="publications-projects">
 {% comment %} Collect all project years {% endcomment %}
 {% assign proj_years = site.projects | map: "year" | compact | uniq | sort | reverse %}
 
@@ -41,8 +41,8 @@ display_categories: [Computer Systems and Networks, AI & DL]
 {% assign has_projects = true %}
 {% endif %}
 
-  <div class="year-section">
-    <h2 class="bibliography" id="y{{ y }}">{{ y }}</h2>
+  <div class="ward s6 year-ward" id="y{{ y }}">
+    <span class="fang">{{ y }}</span>
     <div class="pub-wrapper">
       <h3 class="pub-proj-col-header">Publications</h3>
       <div class="publications">
@@ -62,4 +62,3 @@ display_categories: [Computer Systems and Networks, AI & DL]
 
   </div>
 {% endfor %}
-</div>

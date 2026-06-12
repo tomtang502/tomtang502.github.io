@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git ls-tree *)",
+      "Bash(echo \"exit:$?\")",
+      "Bash(file assets/img/bg/*.png)",
+      "Bash(echo \"exit: $?\")",
+      "Bash(dig +short tomtango.net A)",
+      "Bash(dig +short www.tomtango.net)",
+      "Bash(curl -sI --max-time 8 https://tomtango.net)",
+      "Bash(curl -s --max-time 10 https://www.tomtango.net/)",
+      "Bash(curl -sI --max-time 10 https://tomtang502.github.io/)"
+    ]
+  }
+}

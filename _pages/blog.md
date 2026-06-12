@@ -16,7 +16,8 @@ pagination:
     after: 3 # The number of links after the current page
 ---
 
-<div class="post">
+<div class="ward s6 gate content-ward post">
+<span class="fang">blog</span>
 
 {% assign blog_name_size = site.blog_name | size %}
 {% assign blog_description_size = site.blog_description | size %}
@@ -97,7 +98,6 @@ pagination:
       {% endfor %}
       </div>
     </div>
-    <hr>
 
 {% endif %}
 

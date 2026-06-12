@@ -5,9 +5,12 @@
 body {
   padding-bottom: 70px;
   color: var(--global-text-color);
+  // Ambient texture outside the map (user-requested exception, 95% ink scrim).
+  // background_p2.png is the world ward's asset (style-guide-03 §6), so the
+  // page margins use the sibling art to avoid duplicating the world.
   background:
     var(--global-bg-overlay-color),
-    url("/assets/img/bg/background.png") no-repeat center center fixed;
+    url("/assets/img/bg/background_full.png") no-repeat center center fixed;
   background-size: cover, cover;
   image-rendering: pixelated;
 

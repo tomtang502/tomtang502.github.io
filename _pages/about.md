@@ -2,7 +2,12 @@
 layout: about
 title: About Me
 permalink: /
-subtitle: Pittsburgh, Beijing, Virginia Beach, Wuhan
+subtitle: Beijing, Pittsburgh, Wuhan, Virginia Beach
+
+hero:
+  eyebrow: Efficient AI · DLSys · Robotics
+
+world_alt: Pixel-art ancient city world band, one ward of the map
 
 profile:
   align: top
@@ -17,8 +22,6 @@ news: true # includes a list of news items
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
-
-## About me
 
 I am a senior at [Carnegie Mellon University](https://www.cmu.edu/) majoring in `Computer Science` (System and Network Concentration) with an additional concentration in `Robotics`. I'm a member of [Catalyst Group](https://catalyst.cs.cmu.edu), advised by Prof. [Todd C. Mowry](https://www.toddcmowry.org).
 
@@ -39,4 +42,4 @@ I used to be a big fan of subatomic particles and quantum physics, and I've both
 
 ## Miscellaneous
 
-I like playing and watching soccer. I played right back and on the wing for my school teams from middle school through high school. Since starting college, I’ve transitioned to the midfield and stay active by joining pickup games, intramural leagues, and the occasional community match.
+I like playing and watching soccer. I played right back and on the wing for my school teams from middle school through high school. Since starting college, I’ve transitioned to the midfield and stay active by joining pickup games, intramural leagues, and the occasional community match. I also enjoy playing badminton recreationally.
