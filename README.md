@@ -1,8 +1,8 @@
 # Haozhan (Tom) Tang - Personal Website
 
-Personal academic website built with [Jekyll](https://jekyllrb.com/), based on the [al-folio](https://github.com/alshedivat/al-folio) theme.
+Personal academic website built with [Jekyll](https://jekyllrb.com/), based on the [al-folio](https://github.com/alshedivat/al-folio) theme with a custom "Chang'an ward grid" design system (see [Design](#design)).
 
-Live at: [tomtango.net](tomtango.net)
+Live at: [tomtango.net](https://www.tomtango.net)
 
 ## Prerequisites
 
@@ -53,15 +53,32 @@ Run prettier before pushing to pass CI checks:
 
 ```
 _bibliography/   # BibTeX files (papers.bib)
-_includes/       # Liquid template partials
-_layouts/        # Page layout templates
+_includes/       # Liquid template partials (header.liquid = nav wards)
+_layouts/        # Page layout templates (default.liquid = the ward map)
 _news/           # News/announcement items
 _pages/          # Site pages (about, publications & projects, blog)
 _projects/       # Project collection entries
 _plugins/        # Custom Jekyll plugins
-_sass/           # SCSS stylesheets
+_sass/           # SCSS stylesheets (_ward.scss = the design system)
 assets/          # Static assets (CSS, JS, images, PDFs, videos)
 ```
+
+## Design
+
+The site uses a dark, terminal-flavored "ward grid" layout: every page is a single
+6-column CSS grid (`.ward-map`) whose 1px gutters render as visible walls, and all
+content lives in labeled cells (wards). Conventions, all defined in `_sass/_ward.scss`:
+
+- Every page's markup must emit `.ward` divs as **direct children** of `.ward-map`.
+  The `page` layout wraps content in a ward automatically; set `ward_self: true` in
+  front matter to emit your own wards (see `_pages/pub_projects.md`).
+- Each content ward carries a small top-left label (`.fang`) that turns red on hover.
+- One green rule per page: the `.gate` ward's 3px inset (the title ward).
+- Accents: green = working accent (links, active nav), seal red = identity accents
+  (heading markers, self-author underline), `--sky` blue and `--stamp` indigo are
+  owner accents. Pixel art always uses `image-rendering: pixelated`.
+- Never use Bootstrap's `.btn-primary` class — the MDB CDN stylesheet overrides it
+  with `!important`.
 
 ## Adding Content
 
@@ -78,6 +95,14 @@ Publications are auto-grouped by year on the Publications & Projects page.
 2. Add project images to `assets/img/projects/`
 
 Projects appear automatically under their year on the Publications & Projects page.
+
+## Deployment
+
+Pushing to `master` triggers the GitHub Actions workflow (`.github/workflows/deploy.yml`),
+which builds the site and publishes `_site` to the `gh-pages` branch, served at
+[tomtang502.github.io](https://tomtang502.github.io). The custom domain
+[tomtango.net](https://www.tomtango.net) is an AWS S3 + CloudFront mirror of the same
+build and must be synced separately after each deploy.
 
 ## Acknowledgements
 
