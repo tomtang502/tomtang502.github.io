@@ -359,6 +359,7 @@ filtered_bibtex_keywords:
     poster,
     preview,
     preview_wide,
+    pub_year,
     selected,
     slides,
     supp,

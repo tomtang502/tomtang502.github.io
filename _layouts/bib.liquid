@@ -167,7 +167,9 @@
       {% capture entrymonth %}{{ " " }}{{ entry.month | capitalize }}{% endcapture %}
     {% endif %}
     {% if entry.year %}
-      {% capture entryyear %}{{ " " }}{{ entry.year }}{% endcapture %}
+      {% comment %} pub_year lets the displayed venue year differ from the grouping year (year) {% endcomment %}
+      {% assign display_year = entry.pub_year | default: entry.year %}
+      {% capture entryyear %}{{ " " }}{{ display_year }}{% endcapture %}
     {% endif %}
     {% if entry.location %}
       {% capture entrytype %}{{ entrytype }}{{ ", " }}{{ entry.location }}{% endcapture %}
