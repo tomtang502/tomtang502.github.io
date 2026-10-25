@@ -31,7 +31,30 @@
           <abbr class="badge rounded w-100">{{ entry.abbr }}</abbr>
         {% endif %}
       {% endif %}
-      {% if entry.preview %}
+      {% if entry.preview_video %}
+        {% assign preview_video_path = entry.preview_video %}
+        {% unless preview_video_path contains '://' %}
+          {% assign preview_video_path = preview_video_path | prepend: '/assets/video/' | relative_url %}
+        {% endunless %}
+        <figure>
+          <video
+            class="preview img-fluid w-100"
+            style="image-rendering: auto;"
+            src="{{ preview_video_path }}"
+            {% if entry.preview %}
+              poster="{% if entry.preview contains '://' %}{{ entry.preview }}{% else %}{{ entry.preview | prepend: '/assets/img/publication_preview/' | relative_url }}{% endif %}"
+            {% endif %}
+            aria-label="{{ entry.title | escape }} overview"
+            muted
+            loop
+            playsinline
+            controls
+            preload="metadata"
+          >
+            <a href="{{ preview_video_path }}">Watch the overview video.</a>
+          </video>
+        </figure>
+      {% elsif entry.preview %}
         {% if entry.preview contains '://' %}
           <img class="preview z-depth-1 rounded" src="{{ entry.preview }}">
         {% else %}

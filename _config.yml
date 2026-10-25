@@ -358,6 +358,7 @@ filtered_bibtex_keywords:
     pdf,
     poster,
     preview,
+    preview_video,
     preview_wide,
     pub_year,
     selected,
