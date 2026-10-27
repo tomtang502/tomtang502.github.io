@@ -47,10 +47,10 @@ layout: default
   <div class="clearfix">{{ content }}</div>
 </div>
 
-<!-- News ward -->
+<!-- News and blogpost ward -->
 {% if page.news and site.announcements.enabled %}
   <div class="ward s3 content-ward">
-    <span class="fang">news</span>
+    <span class="fang">news and blogpost</span>
     {% include news.liquid limit=true %}
   </div>
 {% endif %}
