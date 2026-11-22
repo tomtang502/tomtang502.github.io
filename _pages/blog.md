@@ -30,11 +30,24 @@ pagination:
   </div>
   {% endif %}
 
-{% if site.display_tags and site.display_tags.size > 0 or site.display_categories and site.display_categories.size > 0 %}
+{% assign display_tags = "" | split: "" %}
+{% for tag in site.display_tags %}
+{% if site.tags[tag] %}
+{% assign display_tags = display_tags | push: tag %}
+{% endif %}
+{% endfor %}
+{% assign display_categories = "" | split: "" %}
+{% for category in site.display_categories %}
+{% if site.categories[category] %}
+{% assign display_categories = display_categories | push: category %}
+{% endif %}
+{% endfor %}
+
+{% if display_tags.size > 0 or display_categories.size > 0 %}
 
   <div class="tag-category-list">
     <ul class="p-0 m-0">
-      {% for tag in site.display_tags %}
+      {% for tag in display_tags %}
         <li>
           <i class="fa-solid fa-hashtag fa-sm"></i> <a href="{{ tag | slugify | prepend: '/blog/tag/' | relative_url }}">{{ tag }}</a>
         </li>
@@ -42,10 +55,10 @@ pagination:
           <p>&bull;</p>
         {% endunless %}
       {% endfor %}
-      {% if site.display_categories.size > 0 and site.display_tags.size > 0 %}
+      {% if display_categories.size > 0 and display_tags.size > 0 %}
         <p>&bull;</p>
       {% endif %}
-      {% for category in site.display_categories %}
+      {% for category in display_categories %}
         <li>
           <i class="fa-solid fa-tag fa-sm"></i> <a href="{{ category | slugify | prepend: '/blog/category/' | relative_url }}">{{ category }}</a>
         </li>
@@ -78,7 +91,7 @@ pagination:
 <p class="card-text">{{ post.description }}</p>
 
                     {% if post.external_source == blank %}
-                      {% assign read_time = post.content | number_of_words | divided_by: 180 | plus: 1 %}
+                      {% assign read_time = post.content | strip_html | number_of_words | divided_by: 180 | plus: 1 %}
                     {% else %}
                       {% assign read_time = post.feed_content | strip_html | number_of_words | divided_by: 180 | plus: 1 %}
                     {% endif %}
@@ -112,7 +125,7 @@ pagination:
     {% for post in postlist %}
 
     {% if post.external_source == blank %}
-      {% assign read_time = post.content | number_of_words | divided_by: 180 | plus: 1 %}
+      {% assign read_time = post.content | strip_html | number_of_words | divided_by: 180 | plus: 1 %}
     {% else %}
       {% assign read_time = post.feed_content | strip_html | number_of_words | divided_by: 180 | plus: 1 %}
     {% endif %}

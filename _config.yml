@@ -278,7 +278,12 @@ sass:
 # -----------------------------------------------------------------------------
 
 jekyll-minifier:
-  exclude: ["robots.txt", "assets/js/search/*.js", "assets/libs/**/*"]
+  exclude:
+    - "robots.txt"
+    - "assets/js/search/*.js"
+    - "assets/libs/**/*"
+    # Keep this standalone article's modern JavaScript intact.
+    - "blog/2026/lora-vs-full-parameter-training/index.html"
   uglifier_args:
     harmony: true
 
