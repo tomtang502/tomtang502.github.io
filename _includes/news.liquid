@@ -1,10 +1,16 @@
 <div class="news">
   {% if site.news != blank %}
     {% assign news_size = site.news | size %}
+    {% assign scroll_news = false %}
+    {% if include.limit and site.announcements.scrollable and news_size > 3 %}
+      {% assign scroll_news = true %}
+    {% endif %}
     <div
-      class="table-responsive"
-      {% if include.limit and site.announcements.scrollable and news_size > 3 %}
-        style="max-height: 60vw"
+      class="table-responsive{% if scroll_news %} news-scroll{% endif %}"
+      {% if scroll_news %}
+        tabindex="0"
+        role="region"
+        aria-label="News and blogpost history"
       {% endif %}
     >
       <table class="table table-sm table-borderless">
