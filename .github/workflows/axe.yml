@@ -22,7 +22,8 @@ env:
 jobs:
   check:
     # available images: https://github.com/actions/runner-images#available-images
-    runs-on: ubuntu-latest
+    # Match the deployment toolchain for Ruby 3.2 native extensions.
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
