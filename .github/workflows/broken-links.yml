@@ -44,5 +44,12 @@ jobs:
         uses: lycheeverse/lychee-action@v1.9.0
         with:
           fail: true
-          # removed md files that include liquid tags
-          args: --user-agent 'curl/7.54' --exclude-path README.md --exclude-path _pages/404.md --exclude-path _pages/blog.md --verbose --no-progress './**/*.md' './**/*.html'
+          # Check rendered Liquid URLs in broken-links-site.yml instead.
+          # Bare font origins are preconnect hints, not pages; stylesheet URLs are still checked.
+          args: >-
+            --user-agent 'curl/7.54'
+            --exclude-path README.md
+            --exclude-path _pages/404.md
+            --exclude '(?i)\{\{|\{%|%7b%7b|%7b%25'
+            --exclude '^https://fonts\.(googleapis|gstatic)\.com/?$'
+            --no-progress './**/*.md' './**/*.html'

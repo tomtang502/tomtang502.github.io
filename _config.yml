@@ -15,7 +15,7 @@ keywords: Robotics Perception, Distributed System, Networks and the Internet # a
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: icon.png # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 
-url: https://tomtang502.github.io # the base hostname & protocol for your site
+url: https://haozhantang.com # the base hostname & protocol for your site
 baseurl: # the subpath of your site, e.g. /blog/. Leave blank for root
 last_updated: false # set to true if you want to display last updated in the footer
 impressum_path: # set to path to include impressum link in the footer, use the same path as permalink in a page, helps to conform with EU GDPR
@@ -127,20 +127,19 @@ google_site_verification: # your google-site-verification ID (Google Search Cons
 bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 
 # -----------------------------------------------------------------------------
-# Blog
+# Standalone posts
 # -----------------------------------------------------------------------------
 
-blog_name: tom-tango # blog_name will be displayed in your blog page
-blog_description: I will try to start write some blogs.
-permalink: /blog/:year/:title/
-lsi: true # produce an index for related posts
+# Individual articles are linked from publications and news; there is no blog index.
+permalink: /:title/
+lsi: false
 
 # Pagination
 pagination:
-  enabled: true
+  enabled: false
 
 related_blog_posts:
-  enabled: true
+  enabled: false
   max_related: 5
 
 # Giscus comments (RECOMMENDED)
@@ -283,7 +282,7 @@ jekyll-minifier:
     - "assets/js/search/*.js"
     - "assets/libs/**/*"
     # Keep this standalone article's modern JavaScript intact.
-    - "blog/2026/lora-vs-full-parameter-training/index.html"
+    - "lora-vs-full-parameter-training/index.html"
   uglifier_args:
     harmony: true
 
@@ -292,18 +291,7 @@ jekyll-minifier:
 # -----------------------------------------------------------------------------
 
 jekyll-archives:
-  enabled: [year, tags, categories] # enables year, tag and category archives (remove if you need to disable one of them).
-  layouts:
-    year: archive-year
-    tag: archive-tag
-    category: archive-category
-  permalinks:
-    year: "/blog/:year/"
-    tag: "/blog/tag/:name/"
-    category: "/blog/category/:name/"
-
-display_tags: ["perception", "system", "network", "control", "algorithm", "physics of information"] # these tags will be displayed on the front page of your blog
-display_categories: [] # these categories will be displayed on the front page of your blog
+  enabled: [] # Keep year, tag, and category collection pages disabled.
 
 # -----------------------------------------------------------------------------
 # Jekyll Scholar

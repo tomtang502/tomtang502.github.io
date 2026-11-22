@@ -23,14 +23,14 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-I am a master's student in `Computer Science` at [Carnegie Mellon University](https://www.cmu.edu/), advised by Prof. [Chenyan Xiong](https://www.cs.cmu.edu/~cx/) (CMU), research scientist [Han Cai](https://han-cai.github.io/) (NVIDIA), and Prof. [Song Han](https://hanlab.mit.edu/songhan) (MIT and NVIDIA). My main research interest is the co-design of algorithms and infrastructure for efficient training and inference of large models.
+I am a master's student in `Computer Science` at [Carnegie Mellon University](https://www.cmu.edu/), advised by Prof. [Chenyan Xiong](https://www.cs.cmu.edu/~cx/) (CMU), research scientist [Han Cai](https://research.nvidia.com/person/han-cai) (NVIDIA), and Prof. [Song Han](https://hanlab.mit.edu/songhan) (MIT and NVIDIA). My main research interest is the co-design of algorithms and infrastructure for efficient training and inference of large models.
 
 I also earned my B.S. in Computer Science (`System and Network Concentration`) with an additional concentration in `Robotics` from CMU. During my undergraduate studies, I was a member of the [Catalyst Group](https://catalyst.cs.cmu.edu), advised by Prof. [Todd C. Mowry](https://www.toddcmowry.org/).
 
 ## Efficient AI
 
 My research is dedicated to enhancing the efficiency and long-context capacity of LLMs through co-optimization of algorithms
-and underlying parallel computer systems. Outside CMU, I work on efficient LLMs and am fortunate to be mentored by Prof. [Song Han](https://hanlab.mit.edu/songhan) and Research Scientist [Han Cai](https://han-cai.github.io) at MIT HAN Lab and NVIDIA.
+and underlying parallel computer systems. Outside CMU, I work on efficient LLMs and am fortunate to be mentored by Prof. [Song Han](https://hanlab.mit.edu/songhan) and Research Scientist [Han Cai](https://research.nvidia.com/person/han-cai) at MIT HAN Lab and NVIDIA.
 
 ## Robotics
 

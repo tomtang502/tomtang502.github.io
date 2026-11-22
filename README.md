@@ -2,7 +2,7 @@
 
 Personal academic website built with [Jekyll](https://jekyllrb.com/), based on the [al-folio](https://github.com/alshedivat/al-folio) theme with a custom "Chang'an ward grid" design system (see [Design](#design)).
 
-Live at: [tomtango.net](https://www.tomtango.net)
+Live at: [haozhantang.com](https://haozhantang.com)
 
 ## Prerequisites
 
@@ -56,7 +56,8 @@ _bibliography/   # BibTeX files (papers.bib)
 _includes/       # Liquid template partials (header.liquid = nav wards)
 _layouts/        # Page layout templates (default.liquid = the ward map)
 _news/           # News/announcement items
-_pages/          # Site pages (about, publications & projects, blog)
+_pages/          # Site pages (about, publications & projects, news)
+_posts/          # Standalone articles linked from publications and news
 _projects/       # Project collection entries
 _plugins/        # Custom Jekyll plugins
 _sass/           # SCSS stylesheets (_ward.scss = the design system)
@@ -96,13 +97,28 @@ Publications are auto-grouped by year on the Publications & Projects page.
 
 Projects appear automatically under their year on the Publications & Projects page.
 
+### Standalone article
+
+1. Add a dated Markdown or HTML file under `_posts/` with a title and permalink.
+2. For a complete HTML document with its own styling, use `layout: null`.
+3. Add its URL as the publication's `blog` field in `_bibliography/papers.bib`.
+4. Optionally add a linked announcement under `_news/`.
+
+There is no `/blog/` index, pagination, or year/tag/category archive. Standalone
+articles use their own permalinks, such as `/lora-vs-full-parameter-training/`.
+
 ## Deployment
 
 Pushing to `master` triggers the GitHub Actions workflow (`.github/workflows/deploy.yml`),
 which builds the site and publishes `_site` to the `gh-pages` branch, served at
 [tomtang502.github.io](https://tomtang502.github.io). The custom domain
-[tomtango.net](https://www.tomtango.net) is an AWS S3 + CloudFront mirror of the same
-build and must be synced separately after each deploy.
+[haozhantang.com](https://haozhantang.com) is served by AWS S3 and CloudFront; its
+synchronization is handled outside this repository's GitHub Actions workflow.
+
+When removing a page, also remove its obsolete HTML object from the custom-domain
+storage and invalidate the corresponding CloudFront paths. An upload-only sync
+leaves old pages accessible. Remove the exact collection-page objects, such as
+`blog/index.html`; keep the standalone article objects.
 
 ## Acknowledgements
 

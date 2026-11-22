@@ -26,9 +26,7 @@
   {% else %}
     {% capture title %}{{ site.title }}{% endcapture %}
   {% endif %}
-  {% if page.url == '/blog/index.html' %}
-    {{ page.title }} | {{ title }}
-  {% elsif page.title != 'blank' and page.url != '/' %}
+  {% if page.title != 'blank' and page.url != '/' %}
     {% if page.title == null or page.title == '' %}
       {{ page.date | date: '%Y' }} | {{ title }}
     {% else %}
@@ -45,10 +43,8 @@
 {% endif %}
 
 {% assign is_blog_post = false %}
-{% if page.url != '/blog/index.html' and page.url contains '/blog/' %}
-  {% unless page.url contains '/tag/' or page.url contains '/category/' %}
-    {% assign is_blog_post = true %}
-  {% endunless %}
+{% if page.collection == 'posts' %}
+  {% assign is_blog_post = true %}
 {% endif %}
 
 {% if site.serve_og_meta %}
